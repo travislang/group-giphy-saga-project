@@ -20,8 +20,14 @@ function* fetchSearchResults(action) {
     }
 }
 
-function* postFavorite() {
-   
+function* postFavorite(action) {
+   yield call(axios.post, '/api/favorite', action.payload)
+   yield put({type: 'FETCH_FAVORITES'})
+}
+
+function* fetchFavorites() {
+    const favorites = yield call(axios.get, '/api/favorite')
+    yield put({type: 'SET_FAVORITE', payload: favorites})
 }
 
 function* setCategory() {
@@ -37,7 +43,7 @@ function* watcherSaga() {
     yield takeEvery('FETCH_GIFS', fetchSearchResults);
     yield takeEvery('FETCH_CATEGORIES', fetchCategories);
     yield takeEvery('ADD_FAVORITE', postFavorite);
-    yield takeEvery('FETCH_FAVORITE', )
+    yield takeEvery('FETCH_FAVORITES', fetchFavorites)
     // yield takeEvery('', setCategory);
 }
 
