@@ -8,14 +8,14 @@ class SearchItem extends Component {
 
     clickHandler = () => {
         console.log('clicked')
-        this.props.dispatch({ type: 'ADD_FAVORITE', payload: this.props.gif })
+        this.props.dispatch({ type: 'ADD_FAVORITE', payload: this.props.gif.images.original.url })
     }
 
     render() {
         return (
             <div>
-                <img src={this.props.gif.image_url} alt="" />
-                <button onClick={this.clickHandler}>Favorite</button>
+                <img src={this.props.gif.images.original.url} alt="" />
+                <button onClick={this.clickHandler}>Add Favorite</button>
             </div>
         );
     }
