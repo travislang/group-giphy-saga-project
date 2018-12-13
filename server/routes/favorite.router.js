@@ -11,7 +11,6 @@ router.get('/', (req, res) => {
     }).catch( err => {
         console.log('error in favorite get query:', err);
         res.sendStatus(500);
-        
     })
 });
 
@@ -19,7 +18,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     let sqlText = `INSERT INTO "favorites" ("image_url")
     VALUES ($1)`
-    pool.query(sqlText, [req.body])
+    pool.query(sqlText, [req.body.image_url])
     .then( result => {
         res.sendStatus(200);
     }).catch( err => {
