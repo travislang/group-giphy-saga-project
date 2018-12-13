@@ -1,5 +1,5 @@
-const searchResults = (state = [], action) {
-
+const searchResults = (state = [], action) =>{
+  
 }
 
 export default searchResults;
