@@ -12,7 +12,6 @@ class Favorites extends Component {
     return (
       <div>
         {favoritesHtml}
-        <FavoriteItem />
       </div>
     );
   }
