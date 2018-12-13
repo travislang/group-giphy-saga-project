@@ -11,7 +11,6 @@ class Favorites extends Component {
     let favoritesHtml = this.props.favorites.map(favorite => <FavoriteItem key={favorite.id} favorite={favorite} />);
     return (
       <div>
-        <FavoriteItem />
         {favoritesHtml}
       </div>
     );

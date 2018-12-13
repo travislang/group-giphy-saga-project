@@ -23,14 +23,10 @@ class FavoriteItem extends Component {
 
   render() {
     // individual favorite object, given via props
-    // let favorite = this.props.favorite;
-    let favorite = {
-      image_url: "https://media0.giphy.com/media/1d5Tfv7yEy2tSztA5k/giphy.webp",
-      category: 'funny'
-    }
+    let favorite = this.props.favorite;
+
     // array of categories, given via redux
-    // let categories = this.props.categories
-    let categories = ['funny', 'nsfw']
+    let categories = this.props.categories
     // map through categories, create option for each
     let categoryHtml = categories.map((category, i) => {
       return <option key={i} value={category}>{category}</option>
