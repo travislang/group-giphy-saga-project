@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import { withRouter, Link} from 'react-router-dom';
 
 class Navbar extends Component {
   render() {
     return (
       <div>
         <h1>Navbar</h1>
+        <Link to='/'>Home</Link>
+        <Link to='/favorites'>Favorites</Link>
       </div>
     );
   }
@@ -12,4 +15,4 @@ class Navbar extends Component {
 
 
 
-export default Navbar;
+export default withRouter(Navbar);

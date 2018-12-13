@@ -6,14 +6,19 @@ import { connect } from 'react-redux';
 
 class SearchItem extends Component {
 
-  render() {
-    return (
-      <div>
-        <img src={this.props.gif.image_url} alt=""/>
-        
-      </div>
-    );
-  }
+    clickHandler = () => {
+        console.log('clicked')
+        this.props.dispatch({ type: 'ADD_FAVORITE', payload: { image_url: this.props.gif.images.original.url} })
+    }
+
+    render() {
+        return (
+            <span>
+                <img src={this.props.gif.images.original.url} alt="" />
+                <button onClick={this.clickHandler}>Add Favorite</button>
+            </span>
+        );
+    }
 }
 
 
