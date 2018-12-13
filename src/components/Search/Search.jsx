@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import SearchItem from '../Search/SearchItem.jsx';
-import SearchDisplay from '../Search/SearchDisplay.jsx';
+import SearchForm from './SearchForm.jsx';
+import SearchDisplay from './SearchDisplay.jsx';
 
 
 
@@ -9,15 +9,12 @@ class Search extends Component {
 
   render() {
     return (
-     
       <div>
-       <SearchItem />
+       <SearchForm />
        <SearchDisplay />
       </div>
-      
     );
   }
-  
 }
 
 

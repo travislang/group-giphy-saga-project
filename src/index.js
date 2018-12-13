@@ -25,8 +25,8 @@ function* setCategory() {
 
 function* watcherSaga() {
     yield takeEvery('FETCH_GIFS', fetchSearchResults);
-    yield takeEvery('', postFavorite);
-    yield takeEvery('', setCategory);
+    // yield takeEvery('', postFavorite);
+    // yield takeEvery('', setCategory);
 }
 
 const sagaMiddleware = createSagaMiddleware();
