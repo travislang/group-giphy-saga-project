@@ -12,8 +12,12 @@ import searchResults from './redux/reducers/searchResults.reducer';
 import categoryList from './redux/reducers/categoryList.reducer';
 
 function* fetchSearchResults(action) {
-    const gifResults = yield call(axios.get, `/api/search?term=${action.payload}`)
-    yield put({type: 'SET_GIFS', payload: gifResults})
+    try {
+        const gifResults = yield call(axios.get, `/api/search?term=${action.payload}`)
+        yield put({ type: 'SET_GIFS', payload: gifResults })
+    } catch(err) {
+        console.log('error in fetchGifs saga:', err);
+    }
 }
 
 function* postFavorite() {
