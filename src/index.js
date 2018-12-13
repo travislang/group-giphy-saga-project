@@ -9,6 +9,7 @@ import { takeEvery, call, put } from 'redux-saga/effects';
 import axios from 'axios';
 import favoriteList from './redux/reducers/favoriteList.reducer';
 import searchResults from './redux/reducers/searchResults.reducer';
+import categoryList from './redux/reducers/categoryList.reducer';
 
 function* fetchSearchResults(action) {
     const gifResults = yield call(axios.get, `/api/search?term=${action.payload}`)
@@ -23,8 +24,14 @@ function* setCategory() {
 
 }
 
+function* fetchCategories() {
+    const catResults = yield call(axios.get, '/api/category')
+    yield put({type: 'SET_CATEGORIES', payload: catResults})
+}
+
 function* watcherSaga() {
     yield takeEvery('FETCH_GIFS', fetchSearchResults);
+    yield takeEvery('FETCH_CATEGORIES', fetchCategories);
     // yield takeEvery('', postFavorite);
     // yield takeEvery('', setCategory);
 }
@@ -32,7 +39,7 @@ function* watcherSaga() {
 const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
-    combineReducers({ favoriteList, searchResults }),
+    combineReducers({ favoriteList, searchResults, categoryList }),
     applyMiddleware(sagaMiddleware, logger)
 );
 
