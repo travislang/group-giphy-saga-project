@@ -26,7 +26,7 @@ class SearchForm extends Component {
      
       <span>
        <input onChange={this.handleChangeFor}/>
-       <button onClick={this.getGifs()}>Search</button>
+       <button onClick={this.getGifs}>Search</button>
       </span>
       
     );
