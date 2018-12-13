@@ -39,7 +39,7 @@ class FavoriteItem extends Component {
     return (
       <div>
         <img src={favorite.image_url} alt="favorite gif" />
-        <select onChange={this.handleChange()}>
+        <select onChange={this.handleChange}>
           {categoryHtml}
         </select>
         <button>Add Category</button>
