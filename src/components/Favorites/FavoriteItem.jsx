@@ -8,7 +8,7 @@ class FavoriteItem extends Component {
   }
 
   handleClick = () => {
-    this.props.dispatch({ type: 'ADD_CATEGORY', payload: this.state})
+    this.props.dispatch({ type: 'ADD_CATEGORY', payload: this.state })
   }
 
   render() {
@@ -22,14 +22,14 @@ class FavoriteItem extends Component {
     // let categories = this.props.categories
     let categories = ['funny', 'nsfw']
     // map through categories, create option for each
-    let categoryHtml = categories.map( (category, i) => {
+    let categoryHtml = categories.map((category, i) => {
       return <option key={i} value={category}>{category}</option>
     });
 
     return (
       <div>
         <img src={favorite.image_url} alt="favorite gif" />
-        <select>
+        <select >
           {categoryHtml}
         </select>
         <button>Add Category</button>
