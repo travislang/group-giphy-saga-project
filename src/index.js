@@ -27,7 +27,7 @@ function* postFavorite(action) {
 
 function* fetchFavorites() {
     const favorites = yield call(axios.get, '/api/favorite')
-    yield put({type: 'SET_FAVORITE', payload: favorites})
+    yield put({type: 'SET_FAVORITE', payload: favorites.data})
 }
 
 function* setCategory() {
