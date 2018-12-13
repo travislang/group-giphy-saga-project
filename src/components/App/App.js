@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import Navbar from '../Navbar/Navbar.jsx';
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 import Search from '../Search/Search.jsx';
 import Favorites from '../Favorites/Favorites';
-
-
-
 
 class App extends Component {
 
@@ -13,14 +10,14 @@ class App extends Component {
     return (
       <Router>
       <div>
-        {/* <Navbar /> */}
+        <Navbar />
         <Route path='/' exact component={Search}/>
-        {/* <Route path='/favorites' component={Favorites} /> */}
+        <Route path='/favorites' component={Favorites} />
       </div>
       </Router>
     );
   }
-  
+
 }
 
 export default App;
