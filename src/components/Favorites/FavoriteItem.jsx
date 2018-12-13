@@ -28,15 +28,15 @@ class FavoriteItem extends Component {
     // array of categories, given via redux
     let categories = this.props.categories
     // map through categories, create option for each
-    let categoryHtml = categories.map((category, i) => {
-      return <option key={i} value={category}>{category}</option>
-    });
+    // let categoryHtml = categories.map((category, i) => {
+    //   return <option key={i} value={category}>{category}</option>
+    // });
 
     return (
       <div>
         <img src={favorite.image_url} alt="favorite gif" />
         <select onChange={this.handleChange}>
-          {categoryHtml}
+          {/* {categoryHtml} */}
         </select>
         <button>Add Category</button>
       </div>
