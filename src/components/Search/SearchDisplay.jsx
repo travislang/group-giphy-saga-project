@@ -1,25 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import SearchItem from '../Search/SearchItem.jsx';
 
 
 class SearchDisplay extends Component {
 
     render() {
-        let gifItems;
-        gifItems = this.props.reduxStore.searchResults.map((gifs, i) => {
-          return ( <div key={gifs.id}>
-          <div>{gifs.name}</div>
-          </div>
-        )})
-    
+        let gifItems = this.props.reduxStore.searchResults.map(gif => <SearchItem key={gif.id} gif={gif} />);
         return (
-            <div>
-               {gifItems}
-            </div>
-
+          <div>
+            {gifItems}
+          </div>
         );
+      }
     }
-}
+    
 const mapReduxStateToProps = (reduxStore) => ({
     reduxStore
   })
