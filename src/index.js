@@ -17,7 +17,7 @@ function* fetchSearchResults(action) {
 }
 
 function* postFavorite() {
-
+   
 }
 
 function* setCategory() {
@@ -32,7 +32,8 @@ function* fetchCategories() {
 function* watcherSaga() {
     yield takeEvery('FETCH_GIFS', fetchSearchResults);
     yield takeEvery('FETCH_CATEGORIES', fetchCategories);
-    // yield takeEvery('', postFavorite);
+    yield takeEvery('ADD_FAVORITE', postFavorite);
+    yield takeEvery('FETCH_FAVORITE', )
     // yield takeEvery('', setCategory);
 }
 
