@@ -3,6 +3,14 @@ import { connect } from 'react-redux';
 
 class FavoriteItem extends Component {
 
+  state = {
+    category: ''
+  }
+
+  handleClick = () => {
+    this.props.dispatch({ type: 'ADD_CATEGORY', payload: this.state})
+  }
+
   render() {
     // individual favorite object, given via props
     // let favorite = this.props.favorite;
