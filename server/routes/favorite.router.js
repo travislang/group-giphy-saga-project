@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
         })
 });
 
-// add a new favorite 
+// add a new favorite
 router.post('/', (req, res) => {
     let sqlText = `INSERT INTO "favorites" ("image_url")
     VALUES ($1)`
