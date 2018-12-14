@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SearchItem from '../Search/SearchItem.jsx';
 
-
+// this component will map thru the gifs in the reduxStore and pass them to the searchItem component
 class SearchDisplay extends Component {
 
     render() {
