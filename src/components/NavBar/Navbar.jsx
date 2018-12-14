@@ -86,7 +86,6 @@ const styles = theme => ({
 class Navbar extends React.Component {
 
     getGifs = () => {
-        console.log();
         this.props.dispatch({ type: 'FETCH_GIFS', payload: this.state.search });
     }
 
@@ -94,7 +93,15 @@ class Navbar extends React.Component {
         this.setState({
             [event.target.name]: event.target.value
         })
-        console.log('testing handlechangefor', this.state.search);
+        
+    }
+
+    clearSearch = () => {
+        this.setState({
+            search: ''
+        })
+        console.log('clicked');
+        this.props.dispatch({ type: 'CLEAR_GIFS' });
     }
     state = {
         anchorEl: null,
@@ -111,7 +118,7 @@ class Navbar extends React.Component {
                         <IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
                         </IconButton>
                         <Typography className={classes.title} variant="h6" color="inherit" noWrap>
-                            Giphy
+                            Dane's Gif Gallery
                         </Typography>
                         <div className={classes.search}>
                             <div className={classes.searchIcon}>
@@ -124,16 +131,16 @@ class Navbar extends React.Component {
                                     root: classes.inputRoot,
                                     input: classes.inputInput,
                                 }}
-                                onChange={this.handleChangeFor}
+                                onChange={this.handleChangeFor} value={this.state.search}
                             />
                         </div>
                  
-                            <Button variant="contained" color="secondary" className={classes.button} onClick={this.getGifs}>
+                            <Button variant="contained" color="default" className={classes.button} onClick={this.getGifs}>
                                 Search
                      </Button>
                     
-                    <Button variant="contained" color="secondary"><Link to="/">Home</Link></Button>
-                    <Button variant="contained" color="secondary"><Link to="/favorites">Favorites</Link></Button>
+                    <Button variant="contained" color="secondary" onClick={this.clearSearch}><Link to="/">Home</Link></Button>
+                    <Button variant="contained" color="secondary" onClick={this.clearSearch}><Link to="/favorites">Favorites</Link></Button>
                     
                         
                         <div className={classes.sectionMobile}>

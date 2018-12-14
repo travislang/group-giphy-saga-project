@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import SearchItem from '../Search/SearchItem.jsx';
 import Grid from '@material-ui/core/Grid';
 
+// this component will map thru the gifs in the reduxStore and pass them to the searchItem component
 class SearchDisplay extends Component {
 
     render() {

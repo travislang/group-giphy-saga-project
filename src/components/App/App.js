@@ -11,9 +11,7 @@ class App extends Component {
       <Router>
       <div>
         <Navbar />
-        <br/>
-        <br/>
-        
+       
         <Route path='/' exact component={Search}/>
         <Route path='/favorites' component={Favorites} />
       </div>
