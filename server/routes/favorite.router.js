@@ -6,8 +6,11 @@ const router = express.Router();
 // return all favorite images
 router.get('/', (req, res) => {
     pool.query(`SELECT * FROM "favorites"
-                JOIN "category" ON "category"."id" = "favorites"."category_id";`)
+                `)
+
     .then( result => {
+        console.log(result.rows);
+        
         res.send(result.rows)
     }).catch( err => {
         console.log('error in favorite get query:', err);
