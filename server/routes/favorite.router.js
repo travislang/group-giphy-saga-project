@@ -31,7 +31,7 @@ router.post('/', (req, res) => {
 
 // update given favorite with a category id
 router.put('/:favId', (req, res) => {
-    let categoryId = req.body;
+    let categoryId = req.body.catId;
     let favId = req.params.favId;
     let sqlText = `UPDATE "favorites" SET "category_id" = $1
     WHERE "id" = $2;`;

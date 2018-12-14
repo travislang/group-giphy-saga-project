@@ -31,7 +31,9 @@ function* fetchFavorites() {
 }
 
 function* addCategory(action) {
-    yield call(axios.put, `/api/favorite/${action.payload.favId}`, action.payload.catId)
+    console.log(action.payload);
+    
+    yield call(axios.put, `/api/favorite/${action.payload.favId}`, action.payload)
     yield put({type: 'FETCH_FAVORITES'})
 }
 
