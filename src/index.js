@@ -39,8 +39,12 @@ function* addCategory(action) {
 
 function* fetchCategories() {
     const catResults = yield call(axios.get, '/api/category')
-    console.log(catResults);
     yield put({type: 'SET_CATEGORIES', payload: catResults.data})
+}
+
+function* removeFavorite(action) {
+    yield call(axios.delete, `/api/favorite/${action.payload}`);
+    yield put({ type: 'FETCH_FAVORITES' })
 }
 
 function* watcherSaga() {
@@ -49,6 +53,7 @@ function* watcherSaga() {
     yield takeEvery('FETCH_FAVORITES', fetchFavorites);
     yield takeEvery('ADD_CATEGORY', addCategory);
     yield takeEvery('ADD_FAVORITE', postFavorite);
+    yield takeEvery('REMOVE_FAVORITE', removeFavorite);
 
     // yield takeEvery('', setCategory);
 }
