@@ -118,7 +118,7 @@ class Navbar extends React.Component {
                         <IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
                         </IconButton>
                         <Typography className={classes.title} variant="h6" color="inherit" noWrap>
-                            Giphy
+                            Dane's Gif Gallery
                         </Typography>
                         <div className={classes.search}>
                             <div className={classes.searchIcon}>
@@ -135,7 +135,7 @@ class Navbar extends React.Component {
                             />
                         </div>
                  
-                            <Button variant="contained" color="secondary" className={classes.button} onClick={this.getGifs}>
+                            <Button variant="contained" color="default" className={classes.button} onClick={this.getGifs}>
                                 Search
                      </Button>
                     
