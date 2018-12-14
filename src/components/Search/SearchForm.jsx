@@ -1,38 +1,26 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+// import React, { Component } from 'react';
+// import { connect } from 'react-redux';
 
 
 
 
-class SearchForm extends Component {
 
-    state ={ 
-        search: ''
-    }
+// class SearchForm extends Component {
 
-    getGifs = () => {
-        console.log();
-        this.props.dispatch({ type: 'FETCH_GIFS', payload: this.state.search});
-    }
+   
 
-    handleChangeFor = (event) => {
-        this.setState({
-            search: event.target.value
-        })
-    }
-
-  render() {
-    return (
+//   render() {
+//     return (
      
-      <span>
-       <input onChange={this.handleChangeFor}/>
-       <button onClick={this.getGifs}>Search</button>
-      </span>
+//       <span>
+//        <input onChange={this.handleChangeFor}/>
+//        <button onClick={this.getGifs}>Search</button>
+//       </span>
       
-    );
-  }
+//     );
+//   }
   
-}
+// }
 
 
-export default connect()(SearchForm);
+// export default connect()(SearchForm);
