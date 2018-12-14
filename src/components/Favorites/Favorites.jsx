@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import FavoriteItem from './FavoriteItem';
+import FavoriteItem from './Test';
 
 class Favorites extends Component {
   componentDidMount() {
