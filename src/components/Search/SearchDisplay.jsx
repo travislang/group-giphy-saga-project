@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SearchItem from '../Search/SearchItem.jsx';
-
+import Grid from '@material-ui/core/Grid';
 
 class SearchDisplay extends Component {
 
     render() {
-        let gifItems = this.props.reduxStore.searchResults.map(gif => <SearchItem key={gif.id} gif={gif} />);
+        let gifItems = this.props.reduxStore.searchResults.map(gif => 
+            < Grid item md={4} key={gif.id}>
+                <SearchItem  gif={gif} />
+            </Grid >);
         return (
-          <div>
+          <Grid 
+            container
+            direction='row'
+            spacing={24}
+            justify='space-around'
+          >
             {gifItems}
-          </div>
+          </Grid>
         );
       }
     }
