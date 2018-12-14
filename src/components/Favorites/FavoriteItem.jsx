@@ -7,7 +7,7 @@ class FavoriteItem extends Component {
     return (
       <div>
         <img src={this.props.favorite.image_url} alt="favorite gif" />
-        <FavoriteItemForm />
+        <FavoriteItemForm favId={this.props.favorite.id}/>
       </div>
     );
   }

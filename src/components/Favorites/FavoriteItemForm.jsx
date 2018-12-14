@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
@@ -30,12 +31,22 @@ class FavoriteItemForm extends React.Component {
     category: ''
   };
 
+  componentDidMount() {
+    this.props.dispatch({ type: 'FETCH_CATEGORIES' });
+  }
+
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  handleClick = event => {
+    console.log('catId', this.state.category);
+    console.log('favId', this.props.favId);
+  }
+
   render() {
     const { classes } = this.props;
+    let categoriesHtml = this.props.categories.map((category, i) => <MenuItem key={i} value={category.id}>{category.name}</MenuItem>);
 
     return (
       <form className={classes.root} autoComplete="off">
@@ -54,12 +65,10 @@ class FavoriteItemForm extends React.Component {
             <MenuItem value="">
               <em>None</em>
             </MenuItem>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
+            {categoriesHtml}
           </Select>
         </FormControl>
-          <Button variant="contained" color="primary" className={classes.button}>
+          <Button onClick={this.handleClick} variant="contained" color="primary" className={classes.button}>
             ADD
           </Button>
       </form>
@@ -71,4 +80,8 @@ FavoriteItemForm.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(FavoriteItemForm);
+const mapStateToProps = reduxState => ({
+  categories: reduxState.categoryList,
+});
+
+export default connect(mapStateToProps)(withStyles(styles)(FavoriteItemForm));
