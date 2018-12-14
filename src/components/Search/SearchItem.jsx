@@ -13,6 +13,7 @@ import Favorite from '@material-ui/icons/Favorite';
 const styles = {
     card: {
         maxWidth: 345,
+        minWidth: 300
     },
     media: {
         objectFit: 'cover',

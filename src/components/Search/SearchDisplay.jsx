@@ -8,7 +8,7 @@ class SearchDisplay extends Component {
 
     render() {
         let gifItems = this.props.reduxStore.searchResults.map(gif => 
-            < Grid item md={3} key={gif.id}>
+            < Grid item lg={3} key={gif.id}>
                 <SearchItem  gif={gif} />
             </Grid >);
         return (
