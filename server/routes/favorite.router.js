@@ -5,7 +5,8 @@ const router = express.Router();
 
 // return all favorite images
 router.get('/', (req, res) => {
-    pool.query(`SELECT * FROM "favorites"`)
+    pool.query(`SELECT * FROM "favorites"
+                JOIN "category" ON "category"."id" = "favorites"."category_id";`)
     .then( result => {
         res.send(result.rows)
     }).catch( err => {
@@ -30,8 +31,17 @@ router.post('/', (req, res) => {
 
 // update given favorite with a category id
 router.put('/:favId', (req, res) => {
-  // req.body should contain a category_id to add to this favorite image
-  res.sendStatus(200);
+    let catId = req.body;
+    let id = req.params.favId;
+    let sqlText = `UPDATE "favorites" SET "category_id" = $1
+    WHERE "id" = $2;`;
+    pool.query(sqlText, [categoryId, id])
+    .then( result => {
+        res.sendStatus(201);
+    }).catch( err => {
+        console.log('error updating favorite:', err );
+        res.sendStatus(200);
+    })
 });
 
 // delete a favorite

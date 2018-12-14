@@ -6,3 +6,5 @@ const categoryList = (state = [], action) => {
             return state
     }
 }
+
+export default categoryList;

@@ -30,8 +30,9 @@ function* fetchFavorites() {
     yield put({type: 'SET_FAVORITE', payload: favorites.data})
 }
 
-function* setCategory() {
-
+function* setCategory(action) {
+    yield call(axios.put, `/api/favorite/${action.payload.favId}`, action.payload.categoryId)
+    yield put({type: 'FETCH_FAVORITES'})
 }
 
 function* fetchCategories() {
