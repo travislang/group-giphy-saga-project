@@ -42,19 +42,6 @@ class SearchItem extends Component {
     }
 
     render() {
-        // let button;
-        // if(this.state.favorited = true){
-        //     button = <Button onClick={this.clickHandler}            size="medium" variant="outlined"                color="primary">
-        //                     <Favorite className={classes.leftIcon} />
-        //                     Favorited
-        //             </Button>
-        // }
-        // else {
-        //     button = <Button onClick={this.clickHandler} size="medium" variant="outlined" color="primary">
-        //         <FavoriteBorder className={classes.leftIcon} />
-        //         Favorite
-        //             </Button>
-        // }
         const { classes } = this.props;
         return (
             <Card className={classes.card}>
