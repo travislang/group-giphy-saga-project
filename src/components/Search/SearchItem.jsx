@@ -8,6 +8,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
+import Favorite from '@material-ui/icons/Favorite';
 
 const styles = {
     card: {
@@ -28,12 +29,32 @@ const styles = {
 
 class SearchItem extends Component {
 
+    state = {
+        favorited: false
+    }
+
     clickHandler = () => {
         console.log('clicked')
         this.props.dispatch({ type: 'ADD_FAVORITE', payload: { image_url: this.props.gif.images.original.url } })
+        this.setState({
+            favorited: true
+        })
     }
 
     render() {
+        // let button;
+        // if(this.state.favorited = true){
+        //     button = <Button onClick={this.clickHandler}            size="medium" variant="outlined"                color="primary">
+        //                     <Favorite className={classes.leftIcon} />
+        //                     Favorited
+        //             </Button>
+        // }
+        // else {
+        //     button = <Button onClick={this.clickHandler} size="medium" variant="outlined" color="primary">
+        //         <FavoriteBorder className={classes.leftIcon} />
+        //         Favorite
+        //             </Button>
+        // }
         const { classes } = this.props;
         return (
             <Card className={classes.card}>
@@ -50,10 +71,16 @@ class SearchItem extends Component {
                 <CardActions>
                     <Grid container
                     justify='center'>
-                        <Button onClick={this.clickHandler} size="medium" variant="outlined" color="primary">
-                            <FavoriteBorder className={classes.leftIcon} />
-                            Favorite
-                    </Button>
+                        {this.state.favorited ?
+                            (<Button onClick={this.clickHandler} size="medium" variant="outlined" color="primary">
+                                <Favorite className={classes.leftIcon} />
+                                Favorited
+                            </Button>) :
+                            (<Button onClick={this.clickHandler} size="medium" variant="outlined" color="primary">
+                                <FavoriteBorder className={classes.leftIcon} />
+                                Favorite
+                    </Button>)
+                        }
                     </Grid>
                 </CardActions>
             </Card>
