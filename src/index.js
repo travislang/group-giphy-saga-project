@@ -30,21 +30,25 @@ function* fetchFavorites() {
     yield put({type: 'SET_FAVORITE', payload: favorites.data})
 }
 
-function* setCategory(action) {
+function* addCategory(action) {
     yield call(axios.put, `/api/favorite/${action.payload.favId}`, action.payload.categoryId)
     yield put({type: 'FETCH_FAVORITES'})
 }
 
 function* fetchCategories() {
     const catResults = yield call(axios.get, '/api/category')
+    console.log(catResults);
+    
     yield put({type: 'SET_CATEGORIES', payload: catResults})
 }
 
 function* watcherSaga() {
     yield takeEvery('FETCH_GIFS', fetchSearchResults);
     yield takeEvery('FETCH_CATEGORIES', fetchCategories);
+    yield takeEvery('FETCH_FAVORITES', fetchFavorites);
+    yield takeEvery('ADD_CATEGORY', addCategory);
     yield takeEvery('ADD_FAVORITE', postFavorite);
-    yield takeEvery('FETCH_FAVORITES', fetchFavorites)
+    
     // yield takeEvery('', setCategory);
 }
 
