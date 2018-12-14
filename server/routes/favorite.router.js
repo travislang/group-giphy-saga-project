@@ -5,7 +5,7 @@ const router = express.Router();
 
 // return all favorite images
 router.get('/', (req, res) => {
-    pool.query(`SELECT "favorites"."id",        favorites"."image_url", "favorites"."category_id",    "category"."name" FROM "favorites"
+    pool.query(`SELECT "favorites"."id",        "favorites"."image_url", "favorites"."category_id",    "category"."name" FROM "favorites"
     LEFT OUTER JOIN "category" ON "category"."id" = "favorites"."category_id";`)
         .then(result => {
             res.send(result.rows)
