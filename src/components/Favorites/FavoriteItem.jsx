@@ -10,7 +10,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
+import './FavoriteItem.css'
 
 const styles = {
   card: {
@@ -31,26 +31,27 @@ class FavoriteItem extends Component {
     const { classes } = this.props;
 
     return (
-      <Card className={classes.card}>
-        <CardActionArea>
-          <CardMedia
-            className={classes.media}
-            image={this.props.favorite.image_url}
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
-              Category: {this.props.favorite.name}
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-        <CardActions>
-          <FavoriteItemForm favId={this.props.favorite.id} />
-          <Button size="small" color="default" onClick={this.handleClick}>
-            <Delete />
-          </Button>
-        </CardActions>
-      </Card>
-
+      <div className="favorite-item">
+        <Card className={classes.card}>
+          <CardActionArea>
+            <CardMedia
+              className={classes.media}
+              image={this.props.favorite.image_url}
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="h2">
+                Category: {this.props.favorite.name}
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+          <CardActions>
+            <FavoriteItemForm favId={this.props.favorite.id} />
+            <Button size="small" color="secondary" onClick={this.handleClick}>
+              <Delete />
+            </Button>
+          </CardActions>
+        </Card>
+      </div>
     );
   }
 }
