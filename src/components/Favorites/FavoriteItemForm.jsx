@@ -40,8 +40,9 @@ class FavoriteItemForm extends React.Component {
   };
 
   handleClick = event => {
-    console.log('catId', this.state.category);
-    console.log('favId', this.props.favId);
+    let catId = this.state.category;
+    let favId = this.props.favId;
+    this.props.dispatch({ type: 'ADD_CATEGORY', payload: { catId: catId, favId: favId } });
   }
 
   render() {
@@ -68,8 +69,8 @@ class FavoriteItemForm extends React.Component {
             {categoriesHtml}
           </Select>
         </FormControl>
-          <Button onClick={this.handleClick} variant="contained" color="primary" className={classes.button}>
-            ADD
+        <Button onClick={this.handleClick} variant="contained" color="primary" className={classes.button}>
+          ADD
           </Button>
       </form>
     );
